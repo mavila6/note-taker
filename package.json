@@ -18,7 +18,7 @@
         "nodemon": "^2.0.12"
     },
     "bugs": {
-    "url": "https://github.com/mavila6/note-taker/issues"
+        "url": "https://github.com/mavila6/note-taker/issues"
     },
     "repository": {
         "type": "git",
