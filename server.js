@@ -9,6 +9,9 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Sets up express to serve static files in the public directory
+app.use(express.static("public"));
+
 // start the server on the specified port
 app.listen(PORT, () => {
     console.log(`App is now listening on PORT ${PORT}`);
