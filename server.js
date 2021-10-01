@@ -4,9 +4,6 @@ const express = require("express");
 const app = express();
 // variable to represent the port for the server
 const PORT = process.env.PORT || 3001;
-// routes require variables
-const htmlRoute = require("./routes/htmlRoutes");
-const apiRoute = require("./routes/apiRoutes");
 
 // Middleware to parse incoming data
 app.use(express.urlencoded({ extended: true }));
@@ -14,8 +11,8 @@ app.use(express.json());
 // Sets up express to serve static files in the public directory
 app.use(express.static("public"));
 // sets up the routes to be used
-app.use("/api", apiRoute);
-app.use("/", htmlRoute);
+app.use(require("./routes/apiRoutes"));
+app.use(require("./routes/htmlRoutes"));
 
 // start the server on the specified port
 app.listen(PORT, () => {
