@@ -19,7 +19,7 @@ router.post("/api/notes", (req, res) => {
         notes.push(req.body);
         if (err) {
             throw err;
-        }
+        };
         fs.writeFile("./db/db.json", JSON.stringify(notes), (err) => {
             res.json(req.body);
             if (err) {
@@ -29,8 +29,17 @@ router.post("/api/notes", (req, res) => {
     });
 });
 
-// router.delete("", (req, res) => {
-
-// });
+router.delete("/api/notes/:id", (req, res) => {
+    fs.readFile("./db/db.json", "UTF8", (err, data) => {
+        let notes = JSON.parse(data);
+        notes = notes.filter(note => note.id !== req.params.id);
+        fs.writeFile("./db/db.json", JSON.stringify(notes), (err) => {
+            res.json("Successfully Deleted Note!");
+            if (err) {
+                throw err;
+            }
+        });
+    });
+});
 
 module.exports = router;
