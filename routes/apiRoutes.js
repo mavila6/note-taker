@@ -5,7 +5,7 @@ router.get("/api/notes", (req, res) => {
     fs.readFile("./db/db.json", "UTF8", (err, data) => {
         const notes = JSON.parse(data);
         res.send(notes);
-        // console.log(data);
+        // console.log(notes);
         if (err) {
             throw err;
         };
