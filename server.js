@@ -11,9 +11,11 @@ const apiRoute = require("./routes/apiRoutes");
 // Middleware to parse incoming data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 // Sets up express to serve static files in the public directory
 app.use(express.static("public"));
+// sets up the routes to be used
+app.use("/api", apiRoute);
+app.use("/", htmlRoute);
 
 // start the server on the specified port
 app.listen(PORT, () => {
