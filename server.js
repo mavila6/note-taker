@@ -4,6 +4,9 @@ const express = require("express");
 const app = express();
 // variable to represent the port for the server
 const PORT = process.env.PORT || 3001;
+// routes require variables
+const htmlRoute = require("./routes/htmlRoutes");
+const apiRoute = require("./routes/apiRoutes");
 
 // Middleware to parse incoming data
 app.use(express.urlencoded({ extended: true }));
